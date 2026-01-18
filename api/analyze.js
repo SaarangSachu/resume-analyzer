@@ -115,7 +115,8 @@ export default async function handler(req, res) {
             },
         });
 
-        const resultStr = response.text().trim();
+        // Remove the parentheses
+        const resultStr = response.text;
         if (!resultStr) throw new Error("Empty response from AI.");
 
         res.status(200).json(JSON.parse(resultStr));
